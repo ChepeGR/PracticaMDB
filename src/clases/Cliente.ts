@@ -1,6 +1,6 @@
 import {Schema, model} from "mongoose";
 import Persona from './Persona'
-import { InterfazCliente} from "../InterfazCliente";
+import { InterfazCliente } from "../controladores/interfaces/interfazCliente";
 
 const clienteSchema = new Schema<InterfazCliente>({
     dni: {type: Number, required: true},

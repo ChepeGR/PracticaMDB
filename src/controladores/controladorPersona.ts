@@ -44,12 +44,12 @@ class controladorPersona {
 
     async updatePersona(request: Request, response: Response){
         const personaId = request.params.id;
-        const { nombre, apellido } = request.body;
+        const { name, apellido } = request.body;
 
         try {
             const nuevaPersona  = await Persona.findByIdAndUpdate(
                 personaId,
-                { nombre, apellido },
+                { name, apellido },
                 { new: true }
             );
 

@@ -1,5 +1,5 @@
 import {Schema, model} from "mongoose";
-import { InterfazPersona} from "../InterfazPersona";
+import { InterfazPersona } from "../controladores/interfaces/interfazPersona";
 
 const personaSchema = new Schema<InterfazPersona>({
     name: {type: String, required: true},

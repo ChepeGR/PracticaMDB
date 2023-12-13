@@ -2,7 +2,11 @@ import mongoose from 'mongoose';
 import express, { Application, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import personaRouter from "./endpoints/persona.router";
+import clienteRouter from "./endpoints/cliente.router";
+import libroRouter from "./endpoints/libro.router";
+import autorRouter from "./endpoints/autor.router";
 import * as dotenv from "dotenv";
+import { createLibro } from "../src/controladores/controladorLibro"
 
 
 dotenv.config()
@@ -16,6 +20,9 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/persona', personaRouter);
+app.use('/api/libro', libroRouter);
+app.use('/api/cliente', clienteRouter);
+app.use('/api/autor', autorRouter);
 
 
 

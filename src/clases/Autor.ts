@@ -1,6 +1,6 @@
 import {Schema, model} from "mongoose";
 import Persona from './Persona'
-import { InterfazAutor} from "../InterfazAutor";
+import { InterfazAutor } from "../controladores/interfaces/interfazAutor";
 
 const autorSchema = new Schema<InterfazAutor>({
     rip: {type: Boolean, required: true},
