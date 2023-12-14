@@ -6,7 +6,6 @@ import clienteRouter from "./endpoints/cliente.router";
 import libroRouter from "./endpoints/libro.router";
 import autorRouter from "./endpoints/autor.router";
 import * as dotenv from "dotenv";
-import { createLibro } from "../src/controladores/controladorLibro"
 
 
 dotenv.config()

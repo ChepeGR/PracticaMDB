@@ -12,7 +12,7 @@ class controladorLibro{
         }
     }
 
-    async getLibroByTitulo(request: Request, response: Response){
+    async getLibroById(request: Request, response: Response){ 
         const libroId = request.params.id;
         try {
             const libro = await Libro.findById(libroId);
@@ -28,13 +28,13 @@ class controladorLibro{
 
     async createLibro(request: Request, response: Response){
         const {titulo, genero, autor, cliente} = request.body;
-
         const newLibro = new Libro({
             titulo,
             genero,
             autor,
             cliente
         })
+        
         try {
             const createdLibro = await newLibro.save();
             response.json(createdLibro);
@@ -42,6 +42,7 @@ class controladorLibro{
             response.status(500).json({ message: 'Error: createLibro' });
         }
     }
+    
 
     async updateLibro(request: Request, response: Response){
         const libroId = request.params.id;
