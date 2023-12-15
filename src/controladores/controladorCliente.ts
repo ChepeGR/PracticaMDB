@@ -27,7 +27,7 @@ class controladorCliente {
     }
 
     async createCliente(request: Request, response: Response){
-        const {dni, domicilio} = request.body;
+        const {dni, domicilio, vip} = request.body;
 
         const newCliente = new Cliente({
             dni,
@@ -43,12 +43,12 @@ class controladorCliente {
 
     async updateCliente(request: Request, response: Response){
         const clienteId = request.params.id;
-        const { dni, domicilio} = request.body;
+        const { dni, domicilio, vip} = request.body;
 
         try {
             const nuevoCliente  = await Cliente.findByIdAndUpdate(
                 clienteId,
-                {dni, domicilio },
+                {dni, domicilio, vip},
                 { new: true }
             );
 

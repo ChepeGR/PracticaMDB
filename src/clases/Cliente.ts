@@ -3,8 +3,9 @@ import Persona from './Persona'
 import { InterfazCliente } from "../controladores/interfaces/interfazCliente";
 
 const clienteSchema = new Schema<InterfazCliente>({
-    dni: {type: Number, required: false},
+    dni: {type: Number, required: true},
     domicilio: {type: String, required: false},
+    vip : {type: Boolean, required : true},
 })
 
 const Cliente = Persona.discriminator('Cliente', clienteSchema);

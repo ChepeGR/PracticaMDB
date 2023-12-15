@@ -11,6 +11,12 @@ import * as dotenv from "dotenv";
 dotenv.config()
 const app: Application = express();
 const PORT: number = 3000;
+let CONNSTRING = '';
+if (process.env.CONN_STRING) {
+    CONNSTRING = process.env.CONN_STRING
+} else {
+  throw new Error("Missing CONN_STRING: environment variable is not set")
+}
 
 app.use(bodyParser.json());
 
@@ -27,7 +33,7 @@ app.use('/api/autor', autorRouter);
 
 const start = async () => {
     try {
-        await mongoose.connect('mongodb+srv://chepeeduardo:jose123@cluster0.s77to9w.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect(CONNSTRING);
         console.log('Connected to MongoDB');
 
         app.listen(PORT, () => console.log(`Server started on ${PORT}`));

@@ -34,7 +34,7 @@ class controladorLibro{
             autor,
             cliente
         })
-        
+
         try {
             const createdLibro = await newLibro.save();
             response.json(createdLibro);
