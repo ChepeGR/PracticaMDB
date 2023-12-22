@@ -1,5 +1,4 @@
-import mongoose, { Document, Schema, Types } from 'mongoose';
-import Cliente from './Cliente';
+import mongoose, {Schema, model} from 'mongoose';
 import { InterfazMembresia } from '../controladores/interfaces/interfazMembrecia';
 
 const membresiaSchema = new Schema<InterfazMembresia>({
@@ -7,5 +6,5 @@ const membresiaSchema = new Schema<InterfazMembresia>({
     nivel: {type: String, required: false},
 })
 
-const Membresia = Cliente.discriminator('Membresia', membresiaSchema);
+const Membresia = model('Membresia', membresiaSchema);
 export default Membresia;

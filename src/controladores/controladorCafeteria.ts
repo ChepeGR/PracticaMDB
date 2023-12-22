@@ -27,12 +27,11 @@ class controladorCafeteria {
     }
 
     async createdCafe(request: Request, response: Response){
-        const {pedido, descuentoPorVip, cuenta} = request.body;
+        const {pedido, bill} = request.body;
 
         const newCafeteria = new Cafeteria({
             pedido,
-            descuentoPorVip,
-            cuenta,
+            bill,
         })
         try {
             const createdCafe = await newCafeteria.save();
@@ -44,12 +43,12 @@ class controladorCafeteria {
 
     async updateCafe(request: Request, response: Response){
         const cafeId = request.params.id;
-        const { pedido, descuentoPorVip, cuenta} = request.body;
+        const { pedido, bill} = request.body;
 
         try {
             const nuevoCafe  = await Cafeteria.findByIdAndUpdate(
                 cafeId,
-                {pedido, descuentoPorVip,cuenta },
+                {pedido, bill },
                 { new: true }
             );
 

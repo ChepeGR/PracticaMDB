@@ -5,6 +5,10 @@ import personaRouter from "./endpoints/persona.router";
 import clienteRouter from "./endpoints/cliente.router";
 import libroRouter from "./endpoints/libro.router";
 import autorRouter from "./endpoints/autor.router";
+import membresiaRouter from "./endpoints/membresia.router";
+import cafeteriaRouter from "./endpoints/cafeteria.router";
+import loungeRouter from "./endpoints/lounge.router";
+import readingSessionRouter from "./endpoints/readingSession.router";
 import * as dotenv from "dotenv";
 
 
@@ -28,6 +32,10 @@ app.use('/api/persona', personaRouter);
 app.use('/api/libro', libroRouter);
 app.use('/api/cliente', clienteRouter);
 app.use('/api/autor', autorRouter);
+app.use('/api/membresia', membresiaRouter);
+app.use('/api/cafeteria', cafeteriaRouter);
+app.use('/api/readingSession', readingSessionRouter);
+app.use('/api/lounge', loungeRouter);
 
 
 

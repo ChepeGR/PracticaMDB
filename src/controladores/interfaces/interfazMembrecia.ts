@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema, Types } from 'mongoose';
+import mongoose, { Document, Types } from 'mongoose';
 
 export interface InterfazMembresia extends Document{
     cliente: Types.ObjectId,
