@@ -1,7 +1,7 @@
 import {Request, Response} from "express";
 import ReadingSession from "../clases/ReadingSession";
 
-class controladorReadingSession{
+class controllerReadingSession{
 
     async getAllReadingSession(request: Request, response: Response){
         try {
@@ -11,7 +11,7 @@ class controladorReadingSession{
             response.status(500).json({ message: 'Error: getAllReadingSession'});
         }
     }
-
+ 
     async getReadingSessionById(request: Request, response: Response){ 
         const readingSessionId = request.params.id;
         try {
@@ -19,7 +19,7 @@ class controladorReadingSession{
             if (readingSession) {
                 response.json(readingSession);
             } else {
-                response.status(404).json({ message: 'Reading session no encontrada' });
+                response.status(404).json({ message: 'Reading session not found' });
             }
         } catch (error) {
             response.status(500).json({ message: 'Error: getReadingSessionById' });
@@ -27,10 +27,11 @@ class controladorReadingSession{
     }
 
     async createReadingSession(request: Request, response: Response){
-        const {libro, date} = request.body;
+        const {book, date, lounge} = request.body;
         const newReadingSession = new ReadingSession({
-            libro,
-            date
+            book,
+            date,
+            lounge
         })
 
         try {
@@ -44,19 +45,19 @@ class controladorReadingSession{
 
     async updateReadingSession(request: Request, response: Response){
         const readingSessionId = request.params.id;
-        const {libro, date } = request.body;
+        const {book, date, lounge } = request.body;
 
         try {
             const newReadingSession  = await ReadingSession.findByIdAndUpdate(
                 readingSessionId,
-                {libro, date },
+                {book, date, lounge },
                 { new: true }
             );
 
             if (newReadingSession) {
                 response.json(newReadingSession);
             } else {
-                response.status(404).json({ message: 'Reading session no encontrada' });
+                response.status(404).json({ message: 'Reading session not found' });
             }
         } catch (error) {
             response.status(500).json({ message: 'Error: updateReadingSession'});
@@ -72,7 +73,7 @@ class controladorReadingSession{
             if (readingSessionDeleted) {
                 response.json(readingSessionDeleted);
             } else {
-                response.status(404).json({ message: 'Reading session no encontrada' });
+                response.status(404).json({ message: 'Reading session not found' });
             }
         } catch (error) {
             response.status(500).json({ message: 'Error: deleteReadingSession Error' });
@@ -80,4 +81,4 @@ class controladorReadingSession{
     }
 }
 
-export default new controladorReadingSession();
+export default new controllerReadingSession();

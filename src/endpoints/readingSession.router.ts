@@ -1,12 +1,12 @@
 import express from 'express';
-import controladorReadingSession from '../controladores/controladorReadingSession';
+import controllerReadingSession from '../controladores/controllerReadingSession';
 
 const router = express.Router();
 
-router.get('/', controladorReadingSession.getAllReadingSession);
-router.get('/:id', controladorReadingSession.getReadingSessionById);
-router.post('/', controladorReadingSession.createReadingSession);
-router.put('/:id', controladorReadingSession.updateReadingSession);
-router.delete('/:id', controladorReadingSession.deleteReadingSession);
+router.get('/', controllerReadingSession.getAllReadingSession);
+router.get('/:id', controllerReadingSession.getReadingSessionById);
+router.post('/', controllerReadingSession.createReadingSession);
+router.put('/:id', controllerReadingSession.updateReadingSession);
+router.delete('/:id', controllerReadingSession.deleteReadingSession);
 
 export default router;

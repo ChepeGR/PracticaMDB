@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Lounge from "../clases/Lounge";
 
-class controladorLounge{
+class controllerLounge{
 
     async getAllLounges(request: Request, response: Response){
         try {
@@ -19,7 +19,7 @@ class controladorLounge{
             if (lounge) {
                 response.json(lounge);
             } else {
-                response.status(404).json({ message: 'Lounge no encontrado' });
+                response.status(404).json({ message: 'Lounge not found' });
             }
         } catch (error) {
             response.status(500).json({ message: 'Error: getLoungeById' });
@@ -48,16 +48,16 @@ class controladorLounge{
         const { loungeNumber, size, loungeName} = request.body;
 
         try {
-            const nuevaLounge  = await Lounge.findByIdAndUpdate(
+            const newLounge  = await Lounge.findByIdAndUpdate(
                 loungeId,
                 { loungeNumber, size, loungeName },
                 { new: true }
             );
 
-            if (nuevaLounge) {
-                response.json(nuevaLounge);
+            if (newLounge) {
+                response.json(newLounge);
             } else {
-                response.status(404).json({ message: 'Lounge no encontrado' });
+                response.status(404).json({ message: 'Lounge not found' });
             }
         } catch (error) {
             response.status(500).json({ message: 'Error: updateLounge' });
@@ -73,7 +73,7 @@ class controladorLounge{
             if (loungeDelete) {
                 response.json(loungeDelete);
             } else {
-                response.status(404).json({ message: 'Lounge no encontrado' });
+                response.status(404).json({ message: 'Lounge not found' });
             }
         } catch (error) {
             response.status(500).json({ message: 'Error: deleteLounge Error' });
@@ -81,4 +81,4 @@ class controladorLounge{
     }
 }
 
-export default new controladorLounge();
+export default new controllerLounge(); 

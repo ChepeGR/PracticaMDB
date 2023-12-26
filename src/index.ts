@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 import express, { Application, Request, Response } from 'express';
 import bodyParser from 'body-parser';
-import personaRouter from "./endpoints/persona.router";
-import clienteRouter from "./endpoints/cliente.router";
-import libroRouter from "./endpoints/libro.router";
-import autorRouter from "./endpoints/autor.router";
-import membresiaRouter from "./endpoints/membresia.router";
+import personaRouter from "./endpoints/person.router";
+import clienteRouter from "./endpoints/client.router";
+import bookRouter from "./endpoints/book.router";
+import autorRouter from "./endpoints/author.router";
+import membresiaRouter from "./endpoints/membership.router";
 import cafeteriaRouter from "./endpoints/cafeteria.router";
 import loungeRouter from "./endpoints/lounge.router";
 import readingSessionRouter from "./endpoints/readingSession.router";
@@ -28,10 +28,10 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Express server running');
 });
 
-app.use('/api/persona', personaRouter);
-app.use('/api/libro', libroRouter);
-app.use('/api/cliente', clienteRouter);
-app.use('/api/autor', autorRouter);
+app.use('/api/person', personaRouter);
+app.use('/api/book', bookRouter);
+app.use('/api/client', clienteRouter);
+app.use('/api/author', autorRouter);
 app.use('/api/membresia', membresiaRouter);
 app.use('/api/cafeteria', cafeteriaRouter);
 app.use('/api/readingSession', readingSessionRouter);

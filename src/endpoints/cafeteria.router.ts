@@ -1,12 +1,12 @@
 import express from 'express';
-import controladorCafeteria from '../controladores/controladorCafeteria';
+import controllerCafeteria from '../controladores/controllerCafeteria';
 
 const router = express.Router();
 
-router.get('/', controladorCafeteria.getAllCafeteria);
-router.get('/:id', controladorCafeteria.getCafeteriaByName);
-router.post('/', controladorCafeteria.createdCafe);
-router.put('/:id', controladorCafeteria.updateCafe);
-router.delete('/:id', controladorCafeteria.deleteCafe);
+router.get('/', controllerCafeteria.getAllCafeteria);
+router.get('/:id', controllerCafeteria.getCafeteriaByName);
+router.post('/', controllerCafeteria.createdCafeteria);
+router.put('/:id', controllerCafeteria.updateCafeteria);
+router.delete('/:id', controllerCafeteria.deleteCafeteria);
 
 export default router;
