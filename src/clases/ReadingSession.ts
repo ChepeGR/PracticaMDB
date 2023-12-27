@@ -1,13 +1,13 @@
 import { Schema, model } from "mongoose";
-import { InterfazReadingSession } from "../controladores/interfaces/interfazExhibition";
+import { InterfaceReadingSession } from "../controladores/interfaces/interfaceReadingSession";
 
-const readinSessionSchema = new Schema<InterfazReadingSession>({
-    libro : {type : Schema.Types.ObjectId, ref: 'Libro'},
+const readingSessionSchema = new Schema<InterfaceReadingSession>({
+    book : {type : Schema.Types.ObjectId, ref: 'Book'},
     date : {type: String, req: true},
     lounge : {type: Schema.ObjectId, ref: 'Lounge', req: true},
 
 })
 
-const ReadingSession = model('ReadingSession', readinSessionSchema);
+const ReadingSession = model('ReadingSession', readingSessionSchema);
 export default ReadingSession;
 

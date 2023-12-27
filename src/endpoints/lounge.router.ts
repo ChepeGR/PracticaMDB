@@ -1,12 +1,12 @@
 import express from "express";
-import controladorLounge from "../controladores/controladorLounge";
+import controllerLounge from "../controladores/controllerLounge";
 
 const router = express.Router();
 
-router.get('/', controladorLounge.getAllLounges);
-router.get('/:id', controladorLounge.getLoungeById);
-router.post('/', controladorLounge.createLounge);
-router.put('/:id', controladorLounge.updateLounge);
-router.delete('/:id', controladorLounge.deleteLounge);
+router.get('/', controllerLounge.getAllLounges);
+router.get('/:id', controllerLounge.getLoungeById);
+router.post('/', controllerLounge.createLounge);
+router.put('/:id', controllerLounge.updateLounge);
+router.delete('/:id', controllerLounge.deleteLounge);
 
 export default router;
