@@ -4,7 +4,7 @@ import { InterfazLibro } from "../controladores/interfaces/interfazLibro"
 const libroSchema = new Schema<InterfazLibro>({
     titulo: {type: String, required: true},
     genero: {type: String, required: true},
-    autor: {type: Schema.Types.ObjectId, ref: 'Autor'},
+    autor: {type: Schema.Types.ObjectId, ref: 'Autor', req: true},
     cliente: {type: Schema.Types.ObjectId, ref: 'Cliente'},
 })
 
