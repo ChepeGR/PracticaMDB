@@ -1,8 +1,8 @@
 import {Request, Response} from "express";
 import Book from "../clases/Book";
-
+import Author from "../clases/Author";
 class controllerBook{
-
+ 
     async getAllBooks(request: Request, response: Response){
         try {
             const books = await Book.find();
@@ -27,11 +27,12 @@ class controllerBook{
     }
 
     async createBook(request: Request, response: Response){
-        const {title, genre, author, client} = request.body;
+        const {title, genre, authorName, authorLastName, client} = request.body;
+        const author = await Author.find({ name: authorName, lastName: authorLastName });
         const newBook = new Book({
             title,
             genre,
-            author,
+            author : author,
             client
         })
 

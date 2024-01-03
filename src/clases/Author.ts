@@ -1,11 +1,12 @@
 import {Schema, model} from "mongoose";
 import { InterfaceAuthor } from "../controladores/interfaces/interfaceAuthor";
-import Person from "./Person";
 
 const authorSchema = new Schema<InterfaceAuthor>({
     rip: {type: Boolean, required: true},
     desc: {type: String, required: true},
+    name: {type: String, required:true},
+    lastName : {type: String, required: true}
 })
 
-const Author = Person.discriminator('Autor', authorSchema);
+const Author = model<InterfaceAuthor>('Author', authorSchema);
 export default Author;

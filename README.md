@@ -46,16 +46,16 @@ Controllers: AuthorController
 Routes: authorRoutes
 Attributes: rip, desc
 
-**Cafeteria**: Manages orders and discounts in a cafe.
-Controllers: CafeteriaController
-Routes: cafeteriaRoutes
-Attributes: order, VIP discount, account
+**Employee**: Represent the employees of the library.
+Controllers: EmployeeController
+Routes: employeeRoutes
+Attributes: officeHours
 
 
 **Client**: Represents a client of the application.
 Controllers: ClientController
 Routes: clientRoutes
-Attributes: ID card, address, VIP status
+Attributes: idClient, promotion
 
 
 **Book**: Details about a book and its relationship with author and client.
@@ -74,36 +74,16 @@ Attributes: client, level
 Controllers: PersonController
 Routes: personRoutes
 Attributes: first name, last name
-Information Stored in Classes
-Authors: Stores authors with attributes such as RIP (Author Identification Record) and description.
 
-**Lounge**: This class was created so that reading sessions have a lounge, with the name of the lounge, its size, and the name of the lounge.
-Controllers: controllerLounge
-Routes: loungeRouter
-Atributes: loungeNumber, size and loungeName
+**Library**: This class represents the categorization of each book into its respective genre, utilizing a library as a repository for the books.
+Controllers: libraryController
+Routes: libraryRouter
+Atributes: numLib, books and manager
 
-**ReadinSession**:This class was created to add reading sessions to the library; it is related to the lounge class to clarify in which lounge the session takes place.
-Controllers: controllerReadingSession
-Routes: readingSessionRouter
-Atributer: book, date and lounge
-
-_Clients_: Saves information about clients, including ID card, address, and VIP status.
-
-_Books_: Records information about books, such as title, genre, author, and associated client.
-
-_Membership_: Stores details about membership levels for clients.
-
-_Persons_: Base class containing common attributes for authors and clients, such as first name and last name.
-
-_Author_: A class that contains a boolean to check if the book's author is still alive, a description of the author, and how it relates to the person class. It also includes a first and last name.
-
-_Cafeteria_: I added a cafeteria to the library that includes the customer's order and the bill to keep a record of the orders.
-
-_Lounge_: The lounge class to specify in which lounge the reading sessions take place. It includes the name of the lounge, its size, and the name of the lounge itself.
-
-_Reading session_: The reading session class is related to the lounge class, so in addition to containing the book to be read during the session and the date, it also includes the lounge where it will take place.
-
-
+**Promotion**: Details the promotions within the bookstore, including the promotion name and the discount. 
+Controllers: promotionController
+Routes: promotionRouter
+Atributer: nameProm, percentDis
 
 This project is ideal for learning and practicing backend development with TypeScript and Express, as well as designing MongoDB databases using mongoose.
 

@@ -2,13 +2,10 @@ import mongoose from 'mongoose';
 import express, { Application, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import personaRouter from "./endpoints/person.router";
-import clienteRouter from "./endpoints/client.router";
+import clientRouter from "./endpoints/client.router";
 import bookRouter from "./endpoints/book.router";
-import autorRouter from "./endpoints/author.router";
-import membresiaRouter from "./endpoints/membership.router";
-import cafeteriaRouter from "./endpoints/cafeteria.router";
-import loungeRouter from "./endpoints/lounge.router";
-import readingSessionRouter from "./endpoints/readingSession.router";
+import employeeRouter from "./endpoints/employee.router"
+import authorRouter from "./endpoints/author.router";
 import * as dotenv from "dotenv";
 
 
@@ -30,12 +27,10 @@ app.get('/', (req: Request, res: Response) => {
 
 app.use('/api/person', personaRouter);
 app.use('/api/book', bookRouter);
-app.use('/api/client', clienteRouter);
-app.use('/api/author', autorRouter);
-app.use('/api/membresia', membresiaRouter);
-app.use('/api/cafeteria', cafeteriaRouter);
-app.use('/api/readingSession', readingSessionRouter);
-app.use('/api/lounge', loungeRouter);
+app.use('/api/client', clientRouter);  
+app.use('/api/author', authorRouter);
+app.use('/api/employee', employeeRouter);
+
 
 
 
