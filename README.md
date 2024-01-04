@@ -35,54 +35,37 @@ This command will start the server with the version specified in the package.jso
 
 
 **Project Structure**
-The project is organized around classes that represent entities related to the management of an application. Below is a brief description of each class and its associated components:
-
+The project is organized around classes that represent entities related to the management of an application. Below is a brief description of each class and its associated attributes:
+//add an explanation of controllers and routes
 
 ***Classes***
-
+//explain more and better the relationship in the classes that uses attributes of other classes
 **Author**: Represents an author of books.
-
-Controllers: AuthorController
-Routes: authorRoutes
 Attributes: rip, desc
 
 **Employee**: Represent the employees of the library.
-Controllers: EmployeeController
-Routes: employeeRoutes
 Attributes: officeHours
 
 
 **Client**: Represents a client of the application.
-Controllers: ClientController
-Routes: clientRoutes
 Attributes: idClient, promotion
 
 
 **Book**: Details about a book and its relationship with author and client.
-Controllers: BookController
-Routes: bookRoutes
 Attributes: title, genre, author, client
 
 
 **Membership**: Manages membership levels for clients.
-Controllers: MembershipController
-Routes: membershipRoutes
 Attributes: client, level
 
 
 **Person**: Base class for authors and clients, contains shared attributes.
-Controllers: PersonController
-Routes: personRoutes
 Attributes: first name, last name
 
 **Library**: This class represents the categorization of each book into its respective genre, utilizing a library as a repository for the books.
-Controllers: libraryController
-Routes: libraryRouter
-Atributes: numLib, books and manager
+Atributes: numLib, books[] and manager
 
 **Promotion**: Details the promotions within the bookstore, including the promotion name and the discount. 
-Controllers: promotionController
-Routes: promotionRouter
 Atributer: nameProm, percentDis
 
 This project is ideal for learning and practicing backend development with TypeScript and Express, as well as designing MongoDB databases using mongoose.

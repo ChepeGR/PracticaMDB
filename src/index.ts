@@ -6,6 +6,9 @@ import clientRouter from "./endpoints/client.router";
 import bookRouter from "./endpoints/book.router";
 import employeeRouter from "./endpoints/employee.router"
 import authorRouter from "./endpoints/author.router";
+import magazineRouter from "./endpoints/magazine.router";
+import promotionRouter from "./endpoints/promotion.router";
+import libraryRouter from "./endpoints/library.router"
 import * as dotenv from "dotenv";
 
 
@@ -30,6 +33,9 @@ app.use('/api/book', bookRouter);
 app.use('/api/client', clientRouter);  
 app.use('/api/author', authorRouter);
 app.use('/api/employee', employeeRouter);
+app.use('/api/magazine', magazineRouter);
+app.use('/api/promotion', promotionRouter);
+app.use('/api/library', libraryRouter);
 
 
 

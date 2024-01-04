@@ -1,7 +1,7 @@
-import { Types } from "mongoose";
+import { InterfaceEmployee } from "./interfaceEmployee";
 
 export interface InterfaceLibrary{
     numLib : string,
     books : [string],
-    manager: Types.ObjectId,
+    manager: InterfaceEmployee,
 }
