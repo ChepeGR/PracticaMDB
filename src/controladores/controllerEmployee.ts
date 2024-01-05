@@ -29,7 +29,7 @@ class employeeController{
         const {officeHours} = request.body;
         const newEmployee = new Employee({
             officeHours
-        })
+        }) 
         try{
             const createdEmployee = await newEmployee.save();
             response.json(createdEmployee);

@@ -26,6 +26,22 @@ class controllerAuthor {
         }
     }
 
+    async getAuthorByName(request: Request, response: Response){
+        const {name} = request.query;
+
+        try{
+            const author = await Author.findOne({nombre: name})
+
+            if(!author){
+                return response.status(404).json({message: 'Author no encontrado'})
+            }
+            response.status(200).json(author)
+        }catch(error){
+            response.status(500).json({message: 'Internal server Error'})
+        }
+
+    }
+
     async createAuthor(request: Request, response: Response){
         const {rip, desc, name, lastName} = request.body;
 
