@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
 import Author from "../clases/Author";
-
+ 
 class controllerAuthor {
 
     async getAllAuthores(request: Request, response: Response){
@@ -12,7 +12,7 @@ class controllerAuthor {
         }
     }
 
-    async getAuthorByName(request: Request, response: Response){
+    async getAuthorById(request: Request, response: Response){
         const authorId = request.params.id;
         try {
             const nameAuthor = await Author.findById(authorId);
@@ -27,11 +27,13 @@ class controllerAuthor {
     }
 
     async createAuthor(request: Request, response: Response){
-        const {rip, desc} = request.body;
+        const {rip, desc, name, lastName} = request.body;
 
         const newAuthor = new Author({
             rip,
             desc,
+            name,
+            lastName
         })
         try {
             const createdAuthor = await newAuthor.save();

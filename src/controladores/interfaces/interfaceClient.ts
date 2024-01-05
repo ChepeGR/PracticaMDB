@@ -1,5 +1,8 @@
-export interface InterfaceClient{
-    id: Number,
-    adress: string,
-    vip: boolean,
+import { Types } from "mongoose";
+import { InterfacePromotion } from "./interfacePromotion";
+import { InterfacePerson } from "./interfacePerson";
+
+export interface InterfaceClient extends InterfacePerson{
+    idClient: number;
+    promotion?: InterfacePromotion;
 }

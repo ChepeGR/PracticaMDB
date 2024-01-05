@@ -27,12 +27,13 @@ class controllerClient {
     }
 
     async createClient(request: Request, response: Response){
-        const {id, adress, vip} = request.body;
+        const {idClient,name, lastName, promotion} = request.body;
 
         const newClient = new Client({
-            id,
-            adress,
-            vip
+            idClient,
+            name,
+            lastName,
+            promotion 
         })
         try {
             const createdClient = await newClient.save();
@@ -44,12 +45,12 @@ class controllerClient {
 
     async updateClient(request: Request, response: Response){
         const clientId = request.params.id;
-        const { id, adress, vip} = request.body;
+        const { idClient,name, lastName, promotion} = request.body;
 
         try {
             const newClient  = await Client.findByIdAndUpdate(
                 clientId,
-                {id, adress, vip},
+                {idClient,name,lastName,promotion},
                 { new: true }
             );
 
